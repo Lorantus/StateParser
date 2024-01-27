@@ -1,13 +1,13 @@
-package or.rd.parser.parsing;
+package org.rd.parser.parsing;
 
-import or.rd.parser.QcmChoice;
-import or.rd.parser.QcmIndicator;
-import or.rd.parser.QcuIndicator;
+import org.rd.parser.QcmChoice;
+import org.rd.parser.QcmIndicator;
+import org.rd.parser.QcuIndicator;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static or.rd.parser.ImportRow.*;
+import static org.rd.parser.ImportRow.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
 
@@ -30,7 +30,7 @@ class ContextTest {
                 QcuIndicator.class,
                 indicator ->
                     assertThat(indicator)
-                        .extracting(QcuIndicator::getNom, QcuIndicator::period)
+                        .extracting(QcuIndicator::getName, QcuIndicator::period)
                         .containsExactly("indicateur qcu", 2023));
     }
 
@@ -54,10 +54,10 @@ class ContextTest {
                 QcmIndicator.class,
                 indicator -> {
                     assertThat(indicator)
-                        .extracting(QcmIndicator::getNom, QcmIndicator::period)
+                        .extracting(QcmIndicator::getName, QcmIndicator::period)
                         .containsExactly("indicateur qcm", 2023);
                     assertThat(indicator.getChoices())
-                        .extracting(QcmChoice::getNom, QcmChoice::getValue)
+                        .extracting(QcmChoice::getName, QcmChoice::getValue)
                         .containsExactly(
                             tuple("choix 1", true),
                             tuple("choix 2", false));
@@ -88,7 +88,7 @@ class ContextTest {
                         QcuIndicator.class,
                         qcuIndicator ->
                             assertThat(qcuIndicator)
-                                .extracting(QcuIndicator::getNom, QcuIndicator::period)
+                                .extracting(QcuIndicator::getName, QcuIndicator::period)
                                 .containsExactly("indicateur qcu 1", 2023)))
             .satisfiesOnlyOnce(indicator ->
                 assertThat(indicator)
@@ -96,10 +96,10 @@ class ContextTest {
                         QcmIndicator.class,
                         qcmIndicator -> {
                             assertThat(qcmIndicator)
-                                .extracting(QcmIndicator::getNom, QcmIndicator::period)
+                                .extracting(QcmIndicator::getName, QcmIndicator::period)
                                 .containsExactly("indicateur qcm", 2023);
                             assertThat(qcmIndicator.getChoices())
-                                .extracting(QcmChoice::getNom, QcmChoice::getValue)
+                                .extracting(QcmChoice::getName, QcmChoice::getValue)
                                 .containsExactly(
                                     tuple("choix 1", true),
                                     tuple("choix 2", false));
@@ -110,7 +110,7 @@ class ContextTest {
                         QcuIndicator.class,
                         qcuIndicator ->
                             assertThat(qcuIndicator)
-                                .extracting(QcuIndicator::getNom, QcuIndicator::period)
+                                .extracting(QcuIndicator::getName, QcuIndicator::period)
                                 .containsExactly("indicateur qcu 2", 2023)));
     }
 }

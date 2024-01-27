@@ -1,15 +1,15 @@
-package or.rd.parser.parsing;
+package org.rd.parser.parsing;
 
-import or.rd.parser.QcmChoice;
-import or.rd.parser.QcmIndicator;
-import or.rd.parser.QcuIndicator;
+import org.rd.parser.QcmChoice;
+import org.rd.parser.QcmIndicator;
+import org.rd.parser.QcuIndicator;
 
 import java.util.Optional;
 
 public interface Row {
-    boolean isQCM();
+    boolean isQcmRow();
 
-    boolean isWithPeriod();
+    boolean isQcmChoice();
 
     Optional<QcmChoice> toQcmChoice();
 

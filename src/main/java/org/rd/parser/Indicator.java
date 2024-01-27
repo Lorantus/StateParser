@@ -1,7 +1,7 @@
-package or.rd.parser;
+package org.rd.parser;
 
 public interface Indicator {
-    String getNom();
+    String getName();
 
     int period();
 }

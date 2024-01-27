@@ -1,20 +1,17 @@
-package or.rd.parser.parsing;
+package org.rd.parser.parsing;
 
-import or.rd.parser.QcmChoice;
-import or.rd.parser.QcmIndicator;
+import org.rd.parser.QcmIndicator;
 
 class QcmChoiceParser implements Parser {
-    private final Context context;
     private final QcmIndicator indicator;
 
-    QcmChoiceParser(Context context, QcmIndicator indicator) {
-        this.context = context;
+    QcmChoiceParser(QcmIndicator indicator) {
         this.indicator = indicator;
     }
 
     @Override
-    public void parseRow(Row row) {
-        if(row.isWithPeriod()) {
+    public void parseRow(Context context, Row row) {
+        if (!row.isQcmChoice()) {
             context.moveTo(new IndicatorParser(context));
             context.parseRow(row);
         } else {

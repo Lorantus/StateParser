@@ -1,4 +1,4 @@
-package or.rd.parser;
+package org.rd.parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,18 +6,18 @@ import java.util.List;
 import static java.util.Collections.unmodifiableList;
 
 public class QcmIndicator implements Indicator {
-    private final String nom;
+    private final String name;
     private final int period;
     private final List<QcmChoice> choices = new ArrayList<>();
 
-    public QcmIndicator(String nom, int period) {
-        this.nom = nom;
+    public QcmIndicator(String name, int period) {
+        this.name = name;
         this.period = period;
     }
 
     @Override
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
     @Override

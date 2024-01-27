@@ -1,17 +1,17 @@
-package or.rd.parser;
+package org.rd.parser;
 
 public class QcuIndicator implements Indicator {
-    private final String nom;
+    private final String name;
     private final int period;
 
-    public QcuIndicator(String nom, int period) {
-        this.nom = nom;
+    public QcuIndicator(String name, int period) {
+        this.name = name;
         this.period = period;
     }
 
     @Override
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
     @Override
